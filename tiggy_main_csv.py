@@ -1,19 +1,19 @@
 '''****************************************************************************
-title           : JM_main_local.py
+title           : tiggy_main_csv.py
 author          : TheBigMort
-modified_by     : josh mack
+modified_by     : tiggy
 date_created    : 20211026
 date_modified   : 202110
 version         : 2.0
 python_version  : 3.9
 ****************************************************************************'''
 
-from data_parseC import parse_mutant_data
+from tiggy_data_parse import parse_mutant_data
 import requests
 import time
 import pandas as pd
 
-csv_data_file = "mutant_data.csv"
+csv_data_file = "tiggy_main.csv"
 
 # Infinite loop to constantly run and update database
 while True:
@@ -37,14 +37,14 @@ while True:
             print(response.status_code)
             break
 
-        # Get kongs data
+        # Get mutants data
         mutants = response.json()['assets']
-        # Parse kongs data
+        # Parse mutants data
         parsed_mutants = [parse_mutant_data(mutant) for mutant in mutants]
-        # insert data into kong_data
+        # insert data into mutant_data
         df = df.append(parsed_mutants, ignore_index=True)
 
-    # create csv file with kongs data
+    # create csv file with mutants data
     df.to_csv(csv_data_file, header=True)
 
     # calculate and print total program run time
