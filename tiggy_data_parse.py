@@ -1,7 +1,7 @@
 '''
-title           : JM_data_parseC.py
+title           : tiggy_data_parse.py
 description     : Mutant ape from the OpenSea API is parsed with this program
-author          : josh mack
+author          : tiggy
 date_created    : 20211026
 date_modified   : 202110
 version         : 2.0
@@ -9,7 +9,6 @@ python_version  : 3.9
 '''
 
 
-global shooting_stat, defense_stat, vision_stat, finish_stat
 
 def parse_mutant_data(mutant_dict):
 
